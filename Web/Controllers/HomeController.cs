@@ -8,10 +8,15 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private RepositorioEf repositorio;
+        public HomeController()
         {
             var context = new DbContexto();
-            var repositorio = new RepositorioEf(context);
+            repositorio = new RepositorioEf(context);
+        }
+
+        public ActionResult Index()
+        {
             var estacionamientos = repositorio.Listar<Estacionamiento>();
             return View(new IndexDto { Estacionamientos = estacionamientos.ToList() });
         }
@@ -28,6 +33,15 @@ namespace Web.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult LogActividad(int id)
+        {
+            return View(new ListaLogActividadDto
+                {
+                    LogActividades = repositorio.Listar<LogActividad>(x => x.Zocalo.Id == id).ToList(),
+                    Titulo = "Slot " + repositorio.Obtener<Zocalo>(x => x.Id == id).Id
+                });
         }
     }
 }
