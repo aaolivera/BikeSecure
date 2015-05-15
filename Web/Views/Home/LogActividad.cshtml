@@ -1,5 +1,4 @@
-﻿@using System.Drawing
-@model Web.Models.ListaLogActividadDto
+﻿@model Web.Models.ListaLogActividadDto
 @{
     Layout = null;
 }
@@ -9,19 +8,27 @@
         <tr>
           <th>#</th>
           <th>NumeroDeTarjeta</th>
-          <th>Fecha</th>
+          <th>Fecha de Entrada</th>
+          <th>Fecha de Salida</th>
         </tr>
       </thead>
-      <tbody>
-        @foreach (var item in Model.LogActividades)
+    <tbody>
+            <tr class="info">
+                <th class="info" scope="row"><p class="bg-info">Actual</p></th>
+                <td class="info">@(Model.EstadoActual != null ? Model.EstadoActual.NumeroDeTarjeta : "")</td>
+                <td class="info">@(Model.EstadoActual != null ? Model.EstadoActual.FechaDeEntrada.ToString() : "")</td>
+                <td class="info">@(Model.EstadoActual != null ? Model.EstadoActual.FechaDeSalida.ToString() : "")</td>
+            </tr>
+        @foreach (var item in Model.Estados)
         {
             <tr>
-              <th scope="row">@item.Id</th>
-              <td>@item.NumeroDeTarjeta</td>
-              <td>@item.Fecha</td>
+                <th scope="row">@item.Id</th>
+                <td>@item.NumeroDeTarjeta</td>
+                <td>@item.FechaDeEntrada</td>
+                <td>@item.FechaDeSalida</td>
             </tr>
         }
-      </tbody>
+    </tbody>
     </table>
 
 

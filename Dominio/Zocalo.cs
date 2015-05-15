@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Interfaz;
 
 namespace Dominio
@@ -7,6 +8,7 @@ namespace Dominio
     {
         [Key]
         public virtual int Id { get; set; }
-        public virtual string NumeroDeTarjeta { get; set; }
+        public virtual Estado Estado { get; set; }
+        public virtual List<Estado> EstadosHistoricos { get; set; }
     }
 }

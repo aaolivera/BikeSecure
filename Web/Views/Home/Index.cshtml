@@ -13,48 +13,9 @@
     </section>
 }
 <script type="text/javascript" src="@Url.Content("/Scripts/home.js")"></script>
-<h2><strong>Estacionamientos</strong></h2>
-<ol class="round">
-    @foreach (var estacionamiento in Model.Estacionamientos)
-    {
-        <li class="empty">
-            <h2><strong>@estacionamiento.Direccion</strong><small>  Geolozalizacion (x: @estacionamiento.LocalizacionX y: @estacionamiento.LocalizacionY)</small></h2>
-            <h2>Bicicletero @estacionamiento.Bicicletero.Lector.Nombre</h2>
-            <div class="row">
-                <div class="form-inline">
-                    Lector
-                    <div class="form-group">
-                        <p class="rfid-image"></p>
-                    </div>
-                    <div class="form-group" style="margin-right: 15px">
-                        @Html.TextBox("asd", "Esperando Lectura...", new { @readonly = "readonly", @class = "form-control input-sm" })
-                    </div>
-                    @foreach (var zocalo in estacionamiento.Bicicletero.Zocalos)
-                    {
-                        <div class="form-group">
-                            @Html.ActionLink("Slot "+ zocalo.Id, "LogActividad","Home",new { Id = zocalo.Id}, new { @class="boton-logActividad"})
-                        </div>
-                            
-                        if (String.IsNullOrEmpty(zocalo.NumeroDeTarjeta))
-                        {
-                            <div class="form-group">
-                                <p class="zocalolibre-image"></p>
-                            </div>
-                        }
-                        else
-                        {
-                            <div class="form-group">
-                                <p class="zocaloocupado-image"></p>
-                            </div>
-                        }
-                    }
-                </div>
-
-            </div>
-        </li>
-    }
-</ol>
-
+<div id="estacionamientos" data-refrescar="@Url.Action("Refresco")">
+@Html.Partial("Estacionamientos",Model)
+</div>
 <div class="modal fade" id="dialogo">
   <div class="modal-dialog">
     <div class="modal-content">

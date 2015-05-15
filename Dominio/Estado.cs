@@ -4,12 +4,12 @@ using Interfaz;
 
 namespace Dominio
 {
-    public class LogActividad : IIdentificable
+    public class Estado : IIdentificable
     {
         [Key]
         public virtual int Id { get; set; }
         public virtual string NumeroDeTarjeta { get; set; }
-        public virtual Zocalo Zocalo { get; set; }
-        public virtual DateTime Fecha { get; set; }
+        public virtual DateTime FechaDeEntrada { get; set; }
+        public virtual DateTime? FechaDeSalida { get; set; }
     }
 }

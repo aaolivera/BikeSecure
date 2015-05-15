@@ -6,6 +6,7 @@ using Web.Models;
 
 namespace Web.Controllers
 {
+    [OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
     public class HomeController : Controller
     {
         private RepositorioEf repositorio;
@@ -21,26 +22,20 @@ namespace Web.Controllers
             return View(new IndexDto { Estacionamientos = estacionamientos.ToList() });
         }
 
-        public ActionResult About()
+        public ActionResult Refresco()
         {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var estacionamientos = repositorio.Listar<Estacionamiento>();
+            return View("Estacionamientos",new IndexDto { Estacionamientos = estacionamientos.ToList() });
         }
 
         public ActionResult LogActividad(int id)
         {
+            var zocalo = repositorio.Obtener<Zocalo>(x => x.Id == id);
             return View(new ListaLogActividadDto
                 {
-                    LogActividades = repositorio.Listar<LogActividad>(x => x.Zocalo.Id == id).ToList(),
-                    Titulo = "Slot " + repositorio.Obtener<Zocalo>(x => x.Id == id).Id
+                    Estados = zocalo.EstadosHistoricos.OrderByDescending(x => x.Id).ToList(),
+                    EstadoActual = zocalo.Estado,
+                    Titulo = "Slot " + zocalo.Id
                 });
         }
     }

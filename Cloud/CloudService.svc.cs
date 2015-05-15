@@ -9,33 +9,46 @@ namespace Cloud
 {
     public class CloudService : ICloudService
     {
-        public string IncommingRead(string number, string macAddres)
+        public string IncommingRead(string rfidName, string macAddres)
         {
             var context = new DbContexto();
             var repositorio = new RepositorioEf(context);
 
-            var estacionamiento = repositorio.Obtener<Estacionamiento>(x => x.Bicicletero.Lector.Nombre == macAddres);
+            var estacionamiento = repositorio.Obtener<Estacionamiento>(x => x.Bicicletero.Lector.Nombre == rfidName);
             if (estacionamiento != null)
             {
-                var zocaloUsado = estacionamiento.Bicicletero.Zocalos.FirstOrDefault(x => x.NumeroDeTarjeta == number);
+                var zocaloUsado = estacionamiento.Bicicletero.Zocalos.FirstOrDefault(x => x.Estado != null && x.Estado.NumeroDeTarjeta == macAddres);
                 if (zocaloUsado != null)
                 {
                     return ActualizarEstadoZocalo(zocaloUsado, string.Empty, repositorio);
                 }
-                var zocaloVacio = estacionamiento.Bicicletero.Zocalos.FirstOrDefault(x => string.IsNullOrEmpty(x.NumeroDeTarjeta));
+                var zocaloVacio = estacionamiento.Bicicletero.Zocalos.FirstOrDefault(x => x.Estado == null);
                 if (zocaloVacio != null)
                 {
-                    return ActualizarEstadoZocalo(zocaloVacio, number, repositorio);
+                    return ActualizarEstadoZocalo(zocaloVacio, macAddres, repositorio);
                 }
                 return "0";
             }
             return "-1";
         }
 
-        private static string ActualizarEstadoZocalo(Zocalo zocalo, string numeroDeTarjeta, RepositorioEf repositorio)
+        private static string ActualizarEstadoZocalo(Zocalo zocalo, string numeroDeTarjeta, IRepositorio repositorio)
         {
-            zocalo.NumeroDeTarjeta = numeroDeTarjeta;
-            repositorio.Agregar(new LogActividad {Fecha = new DateTime(), NumeroDeTarjeta = numeroDeTarjeta, Zocalo = zocalo});
+            if (String.IsNullOrEmpty(numeroDeTarjeta))
+            {
+                var estado = zocalo.Estado;
+                estado.FechaDeSalida = DateTime.Now;
+                zocalo.Estado = null;
+                zocalo.EstadosHistoricos.Add(estado);
+            }
+            else
+            {
+                zocalo.Estado = new Estado
+                    {
+                        FechaDeEntrada = DateTime.Now,
+                        NumeroDeTarjeta = numeroDeTarjeta,
+                    };
+            }
             repositorio.GuardarCambios();
             return zocalo.Id.ToString(CultureInfo.InvariantCulture);
         }

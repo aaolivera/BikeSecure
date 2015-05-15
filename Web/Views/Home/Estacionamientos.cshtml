@@ -1,0 +1,39 @@
+﻿@model Web.Models.IndexDto
+@{
+    Layout = null;
+}
+
+<h2><strong>Estacionamientos</strong></h2>
+<ol class="round">
+    @foreach (var estacionamiento in Model.Estacionamientos)
+    {
+        <li class="empty">
+            <h2><strong>@estacionamiento.Direccion</strong><small>  Geolozalizacion (x: @estacionamiento.LocalizacionX y: @estacionamiento.LocalizacionY)</small></h2>
+            <div class="row">
+                <h2>Bicicletero @estacionamiento.Bicicletero.Lector.Nombre</h2>
+                <div class="form-inline" style="margin-top: 10px">
+                    @foreach (var zocalo in estacionamiento.Bicicletero.Zocalos)
+                    {
+                        <div class="form-group">
+                            @Html.ActionLink("Slot "+ zocalo.Id, "LogActividad","Home",new { Id = zocalo.Id}, new { @class="boton-logActividad"})
+                        </div>
+                            
+                        if (zocalo.Estado == null)
+                        {
+                            <div class="form-group">
+                                <p class="zocalolibre-image"></p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <p class="zocaloocupado-image"></p>
+                            </div>
+                        }
+                    }
+                </div>
+
+            </div>
+        </li>
+    }
+</ol>
