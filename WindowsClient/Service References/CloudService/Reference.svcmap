@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ccd3ac6e-225a-4021-8e99-0331c388f08a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:53717/CloudService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CloudService.xsd" MetadataType="Schema" ID="fba03fbc-8348-4abc-bd0f-9d18d810361b" SourceId="1" SourceUrl="http://localhost:53717/CloudService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CloudService.disco" MetadataType="Disco" ID="77199f64-76e6-476f-a93e-149296429a9e" SourceId="1" SourceUrl="http://localhost:53717/CloudService.svc?disco" />
+    <MetadataFile FileName="CloudService.wsdl" MetadataType="Wsdl" ID="4efe73b1-102a-42ee-b19d-179ec9ff9216" SourceId="1" SourceUrl="http://localhost:53717/CloudService.svc?wsdl" />
+    <MetadataFile FileName="CloudService1.xsd" MetadataType="Schema" ID="2520c084-f1a6-45bc-85da-eaafed463464" SourceId="1" SourceUrl="http://localhost:53717/CloudService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
