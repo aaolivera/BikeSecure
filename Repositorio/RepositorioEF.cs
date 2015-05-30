@@ -48,7 +48,7 @@ namespace Repositorio
             {
                 resultado = resultado.Where(filtro);
             }
-            return resultado.ToList();
+            return resultado.Take(60).ToList();
         }
 
         public int Contar<TEntidad>() where TEntidad : class

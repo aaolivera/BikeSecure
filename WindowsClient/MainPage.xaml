@@ -7,9 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Loaded="Grid_Loaded">
-        <TextBlock HorizontalAlignment="Left" Margin="10,98,0,0" TextWrapping="Wrap" Text="BikeSecure" VerticalAlignment="Top" Height="88" Width="445" FontSize="72" FontFamily="Arial" Foreground="White"/>
-        <Image HorizontalAlignment="Left" Height="88" Margin="122,10,0,0" VerticalAlignment="Top" Width="166" Source="Assets/bikeSecure.png" RenderTransformOrigin="0.491,0.477"/>
-        <TextBlock x:Name="LabelPrincipal" Margin="10,356,10,0" TextWrapping="Wrap" Height="277" Width="1346" FontSize="72" FontFamily="Arial" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Text="Esperando Lectura..."/>
+    <Grid Loaded="Grid_Loaded">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF76E0FF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock HorizontalAlignment="Left" Margin="490,98,0,0" TextWrapping="Wrap" Text="BikeSecure" VerticalAlignment="Top" Height="88" Width="445" FontSize="72" FontFamily="Arial" Foreground="White"/>
+        <Image HorizontalAlignment="Left" Height="88" Margin="592,10,0,0" VerticalAlignment="Top" Width="166" Source="Assets/bikeSecure.png" RenderTransformOrigin="0.491,0.477"/>
+        <TextBlock x:Name="LabelPrincipal" Margin="10,356,10,0" TextWrapping="Wrap" Height="277" Width="1346" FontSize="72" FontFamily="Arial" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White">
+        	<Run Text="Acerque su tarjeta"/>
+        	<Run Text="..."/>
+        </TextBlock>
     </Grid>
 </Page>

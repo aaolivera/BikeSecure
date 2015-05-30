@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.System.Threading;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using WindowsClient.CloudService;
+using WindowsClient.Lector;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,10 +18,11 @@ namespace WindowsClient
     {
         public MainPage()
         {
+            
             this.InitializeComponent();
         }
         CloudServiceClient _servicio = new CloudServiceClient();
-
+        LectorClient _lector = new LectorClient();
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
         /// </summary>
@@ -40,17 +36,25 @@ namespace WindowsClient
         {
             while (true)
             {
-                EscribirLinea("Esperando Lectura...",true);
-                //llamo al lector
-                await Task.Delay(3000);
-                var lectura = "asdfg";
-                if (true)//si es valida
+                try
                 {
-                    EscribirLinea(String.Format("Lectura: {0}", lectura),true);
-                    var slot = await _servicio.IncommingReadAsync("Lector1", lectura);
-                    EscribirLinea(String.Format("Abriendo slot {0}", slot));
+                    EscribirLinea("Acerque su tarjeta...", true);
+                    //llamo al lector
+                    var lectura = await _lector.GetDataAsync();
+                    if (true) //si es valida
+                    {
+                        EscribirLinea(String.Format("Lectura: {0}", lectura), true);
+                        var slot = await _servicio.IncommingReadAsync("Lector1", lectura);
+                        EscribirLinea(slot == "0"
+                                          ? String.Format("Estacionamiento lleno")
+                                          : String.Format("Abriendo slot {0}", slot));
+                    }
+                    await Task.Delay(3000);
                 }
-                await Task.Delay(3000);
+                catch
+                {
+                    
+                }
             }
         }
 

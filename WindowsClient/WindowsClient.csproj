@@ -116,6 +116,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\Lector\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -129,14 +134,29 @@
     <None Include="Service References\CloudService\CloudService1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\Lector\Lector.wsdl" />
+    <None Include="Service References\Lector\Lector.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Lector\Lector1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="WindowsClient_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\bikeSecure.png" />
     <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
+    <None Include="Service References\Lector\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Lector\configuration.svcinfo" />
+    <None Include="Service References\Lector\configuration91.svcinfo" />
+    <None Include="Service References\Lector\Lector.disco" />
     <None Include="Service References\CloudService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -161,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CloudService\" />
+    <WCFMetadataStorage Include="Service References\Lector\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

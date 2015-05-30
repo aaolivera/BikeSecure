@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c54c2e13-c4c6-401d-b4cb-78df9f53aea3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:62343/Lector.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Lector.xsd" MetadataType="Schema" ID="a226bd17-4a51-4252-9bf1-e5b2a7e7885f" SourceId="1" SourceUrl="http://localhost:62343/Lector.svc?xsd=xsd1" />
+    <MetadataFile FileName="Lector.wsdl" MetadataType="Wsdl" ID="0ef0c223-1815-4059-88e4-058d7dc917cd" SourceId="1" SourceUrl="http://localhost:62343/Lector.svc?wsdl" />
+    <MetadataFile FileName="Lector.disco" MetadataType="Disco" ID="031b17da-e063-45df-a44d-3784594ac70b" SourceId="1" SourceUrl="http://localhost:62343/Lector.svc?disco" />
+    <MetadataFile FileName="Lector1.xsd" MetadataType="Schema" ID="a8710e02-162f-4497-87d5-9027e31d353d" SourceId="1" SourceUrl="http://localhost:62343/Lector.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

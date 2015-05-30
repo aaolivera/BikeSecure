@@ -14,7 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsClient", "WindowsClient\WindowsClient.csproj", "{E09F6647-BF67-436F-963D-A308A41AAD62}"
 	ProjectSection(ProjectDependencies) = postProject
 		{47F7A1AD-9B89-4E58-8590-55DD14F1327C} = {47F7A1AD-9B89-4E58-8590-55DD14F1327C}
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0} = {4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lector", "Lector\Lector.csproj", "{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -152,6 +155,22 @@ Global
 		{E09F6647-BF67-436F-963D-A308A41AAD62}.Release|x86.ActiveCfg = Release|x86
 		{E09F6647-BF67-436F-963D-A308A41AAD62}.Release|x86.Build.0 = Release|x86
 		{E09F6647-BF67-436F-963D-A308A41AAD62}.Release|x86.Deploy.0 = Release|x86
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Release|ARM.ActiveCfg = Release|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Release|Win32.ActiveCfg = Release|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Release|x64.ActiveCfg = Release|Any CPU
+		{4BA6DED5-6FC7-440C-AFB4-6AD3F4086DC0}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
