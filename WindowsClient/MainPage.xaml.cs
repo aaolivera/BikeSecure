@@ -38,18 +38,16 @@ namespace WindowsClient
             {
                 try
                 {
-                    EscribirLinea("Acerque su tarjeta...", true);
+                    EscribirLinea("Acerque su tarjeta\npara ingresar/retirar su bicicleta", true);
                     //llamo al lector
                     var lectura = await _lector.GetDataAsync();
-                    if (true) //si es valida
+                    if (lectura != "-1" && lectura != "0") //si es valida
                     {
                         EscribirLinea(String.Format("Lectura: {0}", lectura), true);
                         var slot = await _servicio.IncommingReadAsync("Lector1", lectura);
-                        EscribirLinea(slot == "0"
-                                          ? String.Format("Estacionamiento lleno")
-                                          : String.Format("Abriendo slot {0}", slot));
+                        EscribirLinea(slot == "0" ? String.Format("Estacionamiento lleno") : slot.StartsWith("E") ? String.Format("Retire su bicicleta por el slot {0}", slot) : String.Format("Ingrese su bicicleta en el slot {0}", slot));
                     }
-                    await Task.Delay(3000);
+                    await Task.Delay(2000);
                 }
                 catch
                 {

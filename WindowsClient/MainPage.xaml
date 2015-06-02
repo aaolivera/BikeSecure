@@ -14,11 +14,12 @@
                 <GradientStop Color="#FF76E0FF" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBlock HorizontalAlignment="Left" Margin="490,98,0,0" TextWrapping="Wrap" Text="BikeSecure" VerticalAlignment="Top" Height="88" Width="445" FontSize="72" FontFamily="Arial" Foreground="White"/>
-        <Image HorizontalAlignment="Left" Height="88" Margin="592,10,0,0" VerticalAlignment="Top" Width="166" Source="Assets/bikeSecure.png" RenderTransformOrigin="0.491,0.477"/>
-        <TextBlock x:Name="LabelPrincipal" Margin="10,356,10,0" TextWrapping="Wrap" Height="277" Width="1346" FontSize="72" FontFamily="Arial" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White">
+        <TextBlock HorizontalAlignment="Left" Margin="490,136,0,0" TextWrapping="Wrap" Text="BikeSecure" VerticalAlignment="Top" Height="72" Width="375" FontSize="72" FontFamily="Arial" Foreground="White"/>
+        <Image HorizontalAlignment="Left" Height="88" Margin="592,50,0,0" VerticalAlignment="Top" Width="166" Source="Assets/bikeSecure.png" RenderTransformOrigin="0.491,0.477"/>
+        <TextBlock x:Name="LabelPrincipal" Margin="10,320,10,0" TextWrapping="Wrap" Height="325" Width="1346" FontSize="72" FontFamily="Arial" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White">
         	<Run Text="Acerque su tarjeta"/>
-        	<Run Text="..."/>
+        	<LineBreak/>
+        	<Run Text="para depositar/retirar su bicicleta"/>
         </TextBlock>
     </Grid>
 </Page>

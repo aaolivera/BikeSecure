@@ -69,7 +69,7 @@
     <Compile Include="Lector.svc.cs">
       <DependentUpon>Lector.svc</DependentUpon>
     </Compile>
-    <Compile Include="IService1.cs" />
+    <Compile Include="ILector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -20,12 +20,12 @@ namespace Cloud
                 var zocaloUsado = estacionamiento.Bicicletero.Zocalos.FirstOrDefault(x => x.Estado != null && x.Estado.NumeroDeTarjeta == macAddres);
                 if (zocaloUsado != null)
                 {
-                    return ActualizarEstadoZocalo(zocaloUsado, string.Empty, repositorio);
+                    return "E" + ActualizarEstadoZocalo(zocaloUsado, string.Empty, repositorio);
                 }
-                var zocaloVacio = estacionamiento.Bicicletero.Zocalos.FirstOrDefault(x => x.Estado == null);
+                var zocaloVacio = estacionamiento.Bicicletero.Zocalos.Where(x => x.Estado == null).OrderBy(x => x.EstadosHistoricos != null ? x.EstadosHistoricos.First().FechaDeSalida : DateTime.MinValue).FirstOrDefault();
                 if (zocaloVacio != null)
                 {
-                    return ActualizarEstadoZocalo(zocaloVacio, macAddres, repositorio);
+                    return "I" + ActualizarEstadoZocalo(zocaloVacio, macAddres, repositorio);
                 }
                 return "0";
             }
