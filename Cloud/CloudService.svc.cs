@@ -22,7 +22,7 @@ namespace Cloud
                 {
                     return "E" + ActualizarEstadoZocalo(zocaloUsado, string.Empty, repositorio);
                 }
-                var zocaloVacio = estacionamiento.Bicicletero.Zocalos.Where(x => x.Estado == null).OrderBy(x => x.EstadosHistoricos != null ? x.EstadosHistoricos.First().FechaDeSalida : DateTime.MinValue).FirstOrDefault();
+                var zocaloVacio = estacionamiento.Bicicletero.Zocalos.FirstOrDefault(x => x.Estado == null);
                 if (zocaloVacio != null)
                 {
                     return "I" + ActualizarEstadoZocalo(zocaloVacio, macAddres, repositorio);
